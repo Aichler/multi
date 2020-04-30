@@ -2,8 +2,9 @@ package project.main;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
+import java.util.List;
 import java.util.Random;
-    import java.util.concurrent.*;
+import java.util.concurrent.*;
 
 
 public class Test {
@@ -16,177 +17,73 @@ public class Test {
 
 
 
-//        final Thiev thiev1 = new Thiev();
-//        final Thiev thiev2 = new Thiev();
-//        final Thiev thiev3 = new Thiev();
-
-//        Thread threadAdd = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                    try{
-//                        thiev.add();
-//                    }catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//            }
-//        });
-//
-//        Thread threadAdd1 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try{
-//                    thiev.add();
-//                }catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        Thread threadAdd2 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try{
-//                    thiev.add();
-//                }catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        Thread threadRemove = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//                try{
-//                    thiev.put();
-//                }catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        });
+//       
 
         final Thiev thiev = new Thiev();
+
         thiev.people.add("Tomcs");
         thiev.people.add("Tomcd");
         thiev.people.add("Tomcf");
-
         thiev.people.add("Sanvc");
         thiev.people.add("Sanvf");
         thiev.people.add("Sanvb");
-
-
         thiev.people.add("Thmz");
         thiev.people.add("Thmx");
         thiev.people.add("Thmb");
-
         thiev.people.add("Avice");
 
 
 
-//        threadAdd.start();
-//        threadAdd1.start();
-////        threadAdd1.sleep(2000);
-//        threadAdd.join();
-//        threadAdd1.join();
-//
-//
-//        System.out.println(threadAdd.isAlive());
-//        System.out.println(threadAdd1.isAlive());
-//        System.out.println(threadAdd2.isAlive());
-//        System.out.println(threadRemove.isAlive());
-//        System.out.println("========================");
-//        // получаем 2-й объект
-////        threadRemove.sleep();
-////        threadRemove.sleep(1000);
-//
-//        if(threadAdd1.isAlive() && threadAdd.isAlive()  == true)
-//        {
-//            System.out.println("В доме хозяин");
-//        } else {
-//            threadRemove.start();
-//        }
-//
-//        threadRemove.join();
-////        threadRemove.sleep(1000);
-//        System.out.println(threadAdd.isAlive());
-//        System.out.println(threadAdd1.isAlive());
-//        System.out.println(threadAdd2.isAlive());
-//        System.out.println(threadRemove.isAlive());
-////        threadRemove.sleep(3000);
-//
-//
-//        System.out.println("++++");
-//        threadAdd2.start();
-//        System.out.println(threadRemove.isAlive());
-//        System.out.println(threadAdd2.isAlive());
-//
-//
-////        threadAdd.join();
-////        threadAdd1.join();
-//
-//
-//        threadAdd2.join();
-//
-////        threadAdd.start();
-
-
         Owner owner = new Owner(thiev);
-        Thread ownerThread = new Thread(owner);
-
-
         Owner owner1 = new Owner(thiev);
+        Owner owner2 = new Owner(thiev);
+        Owner owner3 = new Owner(thiev);
+        Owner owner4 = new Owner(thiev);
+        Owner owner5 = new Owner(thiev);
+
+        Thread ownerThread = new Thread(owner);
+        Thread owner2Thread = new Thread(owner2);
         Thread owner1Thread = new Thread(owner1);
-
-
+        Thread owner3Thread = new Thread(owner3);
+        Thread owner4Thread = new Thread(owner4);
+        Thread owner5Thread = new Thread(owner5);
 
 
 
         Thief thief = new Thief(thiev);
-        Thread thiefThread = new Thread(thief);
-
         Thief thief1 = new Thief(thiev);
+        Thief thief2 = new Thief(thiev);
+        Thief thief3 = new Thief(thiev);
+        Thief thief4 = new Thief(thiev);
+        Thief thief5 = new Thief(thiev);
+
+        Thread thiefThread = new Thread(thief);
         Thread thief1Thread = new Thread(thief1);
-
-
-
-        ownerThread.start();
-
-        System.out.println(ownerThread.isAlive());
-        System.out.println(owner1Thread.isAlive());
-        System.out.println(thiefThread.isAlive());
-        System.out.println("==============");
-
-        owner1Thread.start();
-
-        System.out.println(ownerThread.isAlive());
-        System.out.println(owner1Thread.isAlive());
-        System.out.println(thiefThread.isAlive());
-        System.out.println("==============");
-
-        ownerThread.join();
-        owner1Thread.join();
-
-        thiefThread.start();
-        thiefThread.join();
-
-        System.out.println(thiefThread.isAlive());
-        System.out.println(thief1Thread.isAlive());
-        System.out.println("==============");
+        Thread thief2Thread = new Thread(thief2);
+        Thread thief3Thread = new Thread(thief3);
+        Thread thief4hread = new Thread(thief4);
+        Thread thief5Thread = new Thread(thief5);
 
         thief1Thread.start();
+        owner2Thread.start();
+        ownerThread.start();
 
-        System.out.println(ownerThread.isAlive());
-        System.out.println(owner1Thread.isAlive());
-        System.out.println(thiefThread.isAlive());
-        System.out.println(thief1Thread.isAlive());
-        System.out.println("==============");
+        thief5Thread.start();
+
+        owner1Thread.start();
+        thiefThread.start();
+
+        thief2Thread.start();
+
+        owner3Thread.start();
+
+        thief4hread.start();
+
+        owner4Thread.start();
+
+        thief3Thread.start();
 
 
-
-
-
-        thief1Thread.join();
 
    }
 
@@ -201,105 +98,134 @@ class Thiev{
      CopyOnWriteArrayList<Object> people = new CopyOnWriteArrayList<Object>();
 
      CopyOnWriteArrayList<Object> thef = new CopyOnWriteArrayList<Object>();
-//        static int t = 6;
-    public void add() throws InterruptedException
-    {
+
+    boolean rez = false;
+    boolean thief = false;
+    public void add() throws InterruptedException {
+
         Random random = new Random();
-//        synchronized ( ) {
-//            Thiev.class
 
-//            for (int i = 0; i < 4; i++) {
-//                int t = random.nextInt(3);
-                int t = 0;
-                System.out.println("Это начал работать " + t + " поток (хозяин)");//
-                hous.add(people.get(t));
-                System.out.println(hous);
-//            wait();
-//                notify();
-//            System.ouzt.println(hous);//
-                System.out.println("Это отработал " + t + " поток");//
-//            }
-//        }
-    }
 
-    public void put() throws InterruptedException
-    {
-        synchronized (Thiev.class) {
-            Random random = new Random();
-//            int i = random.nextInt(2);
-            int i = 0;
-            System.out.println("========================");
-            System.out.println("Lol " + hous.get(0));
-            System.out.println("Это начал работать " + i + " поток (вор)");//
-//
+            for (int i = 0; i < 3; i++) {
+                int t = random.nextInt(10);
+//            int t = 0;
+            System.out.println("Это начал работать " + t + " поток (хозяин)");//
+            hous.add(people.get(t));
+            System.out.println("Хозяин" + hous);
 
-//            wait();
-            thef.add(hous.get(i));
-            System.out.println("KEK");//
-        hous.remove(i);
-            System.out.println("вор " + thef);
-        System.out.println("Вор украл: "+ thef + " и в доме осталось : " + hous);//
-            System.out.println("Это отработал " + i + " поток");//
-//            wait();
-
+            System.out.println("Это отработал " + t + " поток");//
+            }
         }
 
-    }
-
-
-
 }
 
- class Thing{
-    private String name;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-}
+
 
  class Thief implements Runnable{
-    public Thiev getThiev() {
-         return thiev;
-     }
-
-    public void setThiev(Thiev thiev) {
-         this.thiev = thiev;
-     }
 
     private Thiev thiev;
     Thief(){}
-    Thief(Thiev thiev){
-        this.thiev = thiev;
-    }
 
-    public void putThiev() throws InterruptedException {
+     public Thief(Thiev thiev) {
+         this.thiev = thiev;
+     }
 
-        thiev.put();
 
-    }
+
+
+     public void putThiev() throws InterruptedException {
+
+
+         thiev.thief = true;
+
+         do{
+             if(thiev.rez == false)
+             {
+                 put();
+                 System.out.println("В доме  нет хозяев");
+
+                 System.out.println("Работает поток вор");
+
+                 System.out.println("Поток вора заканчивает работать");
+                 thiev.rez = false;
+             }
+             else {
+                 System.out.println("В доме хозяева");
+                 System.out.println("Поток вор ждет");
+                 thiev.thief = false;
+                 Thread.sleep(100);
+             }
+
+
+
+
+         } while (thiev.rez == true);
+     }
+
+
+
 
     @Override
     public void run() {
 
+
         try{
-//            System.out.println("Lol");
-//            System.out.println(thiev.people.get(0));
+
             putThiev();
+
         }catch (InterruptedException e) {
             e.printStackTrace();
         }
 
     }
+
+     public void put() throws InterruptedException
+     {
+
+
+         synchronized (Thief.class) {
+
+
+             Thread cut = Thread.currentThread();
+             System.out.println(cut);
+             Random random = new Random();
+            int i = random.nextInt(2);
+
+
+
+             int s = thiev.hous.size();
+             if(s == 0){
+                 System.out.println("В доме нет вещей");
+             }else{
+
+                 System.out.println("========================");
+
+                 System.out.println("Это начал работать " + i + " поток (вор)");//
+
+
+
+                 thiev.thef.add(thiev.hous.get(i));
+
+                 thiev.hous.remove(i);
+                 System.out.println("вор " + thiev.thef);
+                 System.out.println("Вор украл: "+ thiev.thef + " и в доме осталось : " + thiev.hous);//
+
+             }
+
+
+
+
+         }
+
+     }
+
 }
 
   class Owner implements Runnable
  {
-//    Thiev thiev = new Thiev();Thiev
+
     private Thiev thiev;
 
     Owner(Thiev thiev){
@@ -315,8 +241,33 @@ class Thiev{
      }
 
      public void addThiev() throws InterruptedException {
-        System.out.println(thiev.people.get(0));
-        thiev.add();
+//
+
+
+
+
+
+         thiev.rez = true;
+
+         do{
+         if(thiev.thief == false)
+         {
+             thiev.add();
+             System.out.println("В доме  нет воров");
+             System.out.println("Начинает работать поток хозяина");
+
+             System.out.println("Заканчивает работать поток хозяина");
+             thiev.rez = false;
+         }
+         else {
+             System.out.println("В доме воры");
+             thiev.rez = false;
+             System.out.println("Хозяин ждет");
+             Thread.sleep(100);
+         }
+
+
+     } while (thiev.thief == true);
      }
 
     @Override
@@ -324,6 +275,7 @@ class Thiev{
 
         try{
             addThiev();
+
         }catch (InterruptedException e) {
             e.printStackTrace();
         }
