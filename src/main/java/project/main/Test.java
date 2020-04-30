@@ -138,23 +138,25 @@ class Thiev{
      public void putThiev() throws InterruptedException {
 
 
-         thiev.thief = true;
 
+         System.out.println(thiev.rez);
          do{
              if(thiev.rez == false)
              {
-                 put();
+                 thiev.thief = true;
                  System.out.println("В доме  нет хозяев");
 
                  System.out.println("Работает поток вор");
 
+                 put();
+                 thiev.thief = false;
+
                  System.out.println("Поток вора заканчивает работать");
-                 thiev.rez = false;
              }
              else {
                  System.out.println("В доме хозяева");
                  System.out.println("Поток вор ждет");
-                 thiev.thief = false;
+
                  Thread.sleep(100);
              }
 
@@ -162,6 +164,7 @@ class Thiev{
 
 
          } while (thiev.rez == true);
+
      }
 
 
@@ -172,7 +175,7 @@ class Thiev{
 
 
         try{
-
+//            Thread.sleep(10);
             putThiev();
 
         }catch (InterruptedException e) {
@@ -247,21 +250,23 @@ class Thiev{
 
 
 
-         thiev.rez = true;
 
+         System.out.println(thiev.thief);
          do{
          if(thiev.thief == false)
          {
-             thiev.add();
              System.out.println("В доме  нет воров");
              System.out.println("Начинает работать поток хозяина");
+             thiev.rez = true;
+             thiev.add();
+
 
              System.out.println("Заканчивает работать поток хозяина");
              thiev.rez = false;
          }
          else {
              System.out.println("В доме воры");
-             thiev.rez = false;
+
              System.out.println("Хозяин ждет");
              Thread.sleep(100);
          }
